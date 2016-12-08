@@ -58,6 +58,18 @@ class NewVisitorTest(unittest.TestCase):
 	# here is the first test (for free) 
         self.browser.get('http://localhost:8000/index.html')
 
+        h=self.browser.find_element_by_tag_name('h1')
+
+        m=self.browser.find_element_by_tag_name('img')
+        self.assertIn('maxresdefault.jpg',m.get_attribute('src'))
+
+        a=self.browser.find_element_by_id('NextPage')
+        a.click()
+
+        self.assertIn('NewPage', self.browser.title)
+
+        
+
 if __name__=="__main__":
         unittest.main(warnings="ignore")
 
